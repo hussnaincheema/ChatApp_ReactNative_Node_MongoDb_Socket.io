@@ -1,15 +1,15 @@
 import { scale, verticalScale } from "@/utils/styling";
 
 export const colors = {
-  primary: "#facc15",
-  primaryLight: "#fef08a",
-  primaryDark: "#eab308",
+  primary: "#278465",
+  primaryLight: "#51a98c",
+  primaryDark: "#156349",
   text: "#292524",
   white: "#fff",
   black: "#000",
   rose: "#ef4444",
-  otherBubble: "#FFF1BF",
-  myBubble: "#FFE1CC",
+  otherBubble: "#f1f5f9",
+  myBubble: "#d1fae5",
   green: "#16a34a",
   neutral50: "#fafaf9",
   neutral100: "#f5f5f4",
