@@ -1,13 +1,21 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
+import Constants from 'expo-constants';
 
-// Handle Android Emulator localhost vs iOS simulator localhost vs Real Device
+// Dynamically handle Local Network APIs for physical devices
 const getBaseUrl = () => {
+  const debuggerHost = Constants.expoConfig?.hostUri;
+  const localhost = debuggerHost?.split(':')[0];
+
+  if (localhost) {
+    return `http://${localhost}:5000/api`;
+  }
+  
   if (Platform.OS === 'android') {
     return 'http://10.0.2.2:5000/api';
   }
-  // For iOS emulator or Web, localhost is fine. Provide local LAN IP for physical device!
+  
   return 'http://localhost:5000/api';
 };
 
