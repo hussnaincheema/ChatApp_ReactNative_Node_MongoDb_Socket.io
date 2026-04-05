@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor: colors.neutral900,
+    backgroundColor: colors.primaryLight,
   },
   splashImage:{
-    height: "23%",
+    height: "70%",
     aspectRatio: 1,
   }
 })
