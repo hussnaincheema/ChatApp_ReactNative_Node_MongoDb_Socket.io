@@ -1,14 +1,17 @@
 import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '@/constants/theme'
-import Animated from 'react-native-reanimated'
+import Animated, { FadeInDown } from 'react-native-reanimated'
 
 const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={colors.neutral900} />
       <Animated.Image
-        source={require('@/assets/images/splash.png')}
+        source={require('../assets/images/Splash.png')}
+        entering={FadeInDown.duration(700).springify()}
+        style={styles.splashImage}
+        resizeMode={'contain'}
       />
     </View>
   )
@@ -22,5 +25,9 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor: colors.neutral900,
+  },
+  splashImage:{
+    height: "23%",
+    aspectRatio: 1,
   }
 })
