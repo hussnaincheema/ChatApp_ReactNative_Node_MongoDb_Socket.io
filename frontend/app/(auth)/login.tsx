@@ -73,7 +73,7 @@ const Login = () => {
                 <Input 
                   label="Password" 
                   placeholder="Enter your password" 
-                  secureTextEntry
+                  isPassword
                   value={values.password}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}

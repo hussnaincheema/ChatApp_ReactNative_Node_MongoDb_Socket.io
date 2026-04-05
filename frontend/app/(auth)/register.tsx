@@ -84,7 +84,7 @@ const Register = () => {
                 <Input 
                   label="Password" 
                   placeholder="Create a password" 
-                  secureTextEntry
+                  isPassword
                   value={values.password}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
