@@ -41,8 +41,6 @@ export const registerUser = createAsyncThunk(
   async (userData: any, { rejectWithValue }) => {
     try {
       const response = await api.post('/auth/register', userData);
-      await AsyncStorage.setItem('userInfo', JSON.stringify(response.data));
-      await AsyncStorage.setItem('userToken', response.data.token);
       return response.data;
     } catch (err: any) {
       console.log('Registration Error:', err.message, err.response?.data);
@@ -103,9 +101,9 @@ const authSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(registerUser.fulfilled, (state, action: PayloadAction<User>) => {
+      .addCase(registerUser.fulfilled, (state) => {
         state.loading = false;
-        state.user = action.payload;
+        // User created successfully, but we do not auto-login to allow manual login screen navigation
       })
       .addCase(registerUser.rejected, (state, action: PayloadAction<any>) => {
         state.loading = false;

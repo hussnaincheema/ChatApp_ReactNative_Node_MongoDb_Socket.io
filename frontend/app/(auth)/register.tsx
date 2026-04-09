@@ -29,16 +29,13 @@ const Register = () => {
     }
   }, [error, dispatch]);
 
-  useEffect(() => {
-    if (user) {
-      setTimeout(() => {
-        router.replace('/');
-      }, 300);
+  const handleRegister = async (values: any) => {
+    try {
+      await dispatch(registerUser(values)).unwrap();
+      router.replace('/(auth)/login');
+    } catch (error) {
+      // Error alert handled by the error useEffect
     }
-  }, [user, router]);
-
-  const handleRegister = (values: any) => {
-    dispatch(registerUser(values));
   };
 
   return (
