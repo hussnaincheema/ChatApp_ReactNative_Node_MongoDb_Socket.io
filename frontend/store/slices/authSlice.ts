@@ -45,6 +45,7 @@ export const registerUser = createAsyncThunk(
       await AsyncStorage.setItem('userToken', response.data.token);
       return response.data;
     } catch (err: any) {
+      console.log('Registration Error:', err.message, err.response?.data);
       return rejectWithValue(err.response?.data?.message || 'Registration failed');
     }
   }
